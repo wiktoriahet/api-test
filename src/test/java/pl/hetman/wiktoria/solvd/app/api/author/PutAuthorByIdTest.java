@@ -31,10 +31,10 @@ public class PutAuthorByIdTest implements IAbstractTest {
     }
 
 
-    @Test(testName = "PUT1", description = "Validate PutAuthorMethod with valid data", dataProvider = "PutAuthorWithValidData")
+    @Test(testName = "PUT1", description = "Validate PutAuthor with valid data", dataProvider = "PutAuthorWithValidData")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P0)
-    public void validatePutAuthorByIdMethodWithValidDataTest(Integer id, Integer bookId, String firstName, String lastName) {
+    public void verifyPutAuthorByIdWithValidDataTest(Integer id, Integer bookId, String firstName, String lastName) {
         //given
         PutAuthorById putAuthorById = new PutAuthorById(id);
         Author author = new Author();
@@ -53,10 +53,10 @@ public class PutAuthorByIdTest implements IAbstractTest {
         putAuthorById.validateResponse();
     }
 
-    @Test(testName = "PUT2", description = "Validate PutAuthorMethod with invalid data", dataProvider = "PutAuthorWithInvalidData")
+    @Test(testName = "PUT2", description = "Validate PutAuthor with invalid data", dataProvider = "PutAuthorWithInvalidData")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P0)
-    public void validatePutAuthorByIdMethodWithInvalidDataTest(Integer id, Integer bookId, String firstName, String lastName) {
+    public void verifyPutAuthorByIdWithInvalidDataTest(Integer id, Integer bookId, String firstName, String lastName) {
         //given
         PutAuthorById putAuthorById = new PutAuthorById(id);
         Author author = new Author();

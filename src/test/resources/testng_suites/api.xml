@@ -4,10 +4,10 @@
 
     <test name="Author API tests">
         <classes>
-            <class name="pl.hetman.wiktoria.solvd.app.api.author.GetAuthorByIdMethodTest"/>
-            <class name="pl.hetman.wiktoria.solvd.app.api.author.PostAuthorMethodTest"/>
+            <class name="pl.hetman.wiktoria.solvd.app.api.author.GetAuthorByIdTest"/>
+            <class name="pl.hetman.wiktoria.solvd.app.api.author.PostAuthorTest"/>
             <class name="pl.hetman.wiktoria.solvd.app.api.author.PutAuthorByIdTest"/>
-            <class name="pl.hetman.wiktoria.solvd.app.api.author.DeleteAuthorByIdMethodTest"/>
+            <class name="pl.hetman.wiktoria.solvd.app.api.author.DeleteAuthorByIdTest"/>
         </classes>
     </test>
 

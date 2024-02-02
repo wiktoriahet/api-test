@@ -8,7 +8,7 @@ import com.zebrunner.carina.core.registrar.tag.TestPriority;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class GetAuthorByIdMethodTest implements IAbstractTest {
+public class GetAuthorByIdTest implements IAbstractTest {
 
     @DataProvider(name = "GetAuthorByIdValidData")
     public Object[][] createAuthorIdValidData() {
@@ -28,12 +28,12 @@ public class GetAuthorByIdMethodTest implements IAbstractTest {
         };
     }
 
-    @Test(testName = "GET1", description = "Validate GetAuthorByIdMethod with valid id", dataProvider = "GetAuthorByIdValidData")
+    @Test(testName = "GET1", description = "Validate GetAuthorById with valid id", dataProvider = "GetAuthorByIdValidData")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P0)
-    public void validateGetAuthorByIdMethodWithValidDataTest(Integer id) {
+    public void verifyGetAuthorByIdWithValidDataTest(Integer id) {
         //given
-        GetAuthorByIdMethod getAuthorById = new GetAuthorByIdMethod(id);
+        GetAuthorById getAuthorById = new GetAuthorById(id);
 
         //when
 
@@ -44,12 +44,12 @@ public class GetAuthorByIdMethodTest implements IAbstractTest {
 
     }
 
-    @Test(testName = "GET2", description = "Validate GetAuthorByIdMethod with invalid id", dataProvider = "GetAuthorByIdInvalidData")
+    @Test(testName = "GET2", description = "Validate GetAuthorById with invalid id", dataProvider = "GetAuthorByIdInvalidData")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P0)
-    public void validateGetAuthorByIdMethodWithInvalidDataTest(Integer id) {
+    public void verifyGetAuthorByIdWithInvalidDataTest(Integer id) {
         //given
-        GetAuthorByIdMethod getAuthorById = new GetAuthorByIdMethod(id);
+        GetAuthorById getAuthorById = new GetAuthorById(id);
 
         //when
 

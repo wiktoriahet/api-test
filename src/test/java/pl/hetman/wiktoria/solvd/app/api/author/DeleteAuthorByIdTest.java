@@ -8,7 +8,7 @@ import com.zebrunner.carina.core.registrar.tag.TestPriority;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class DeleteAuthorByIdMethodTest implements IAbstractTest {
+public class DeleteAuthorByIdTest implements IAbstractTest {
 
     @DataProvider(name = "DeleteAuthorByIdWithValidData")
     public Object[][] createAuthorValidData() {
@@ -29,27 +29,27 @@ public class DeleteAuthorByIdMethodTest implements IAbstractTest {
         };
     }
 
-    @Test(testName = "DELETE1", description = "Validate DeleteAuthorByIdMethod with valid data", dataProvider = "DeleteAuthorByIdWithValidData")
+    @Test(testName = "DELETE1", description = "Validate DeleteAuthorById with valid data", dataProvider = "DeleteAuthorByIdWithValidData")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P0)
-    public void validateDeleteAuthorByIdMethodWithValidDataTest(Integer id) {
+    public void verifyDeleteAuthorByIdWithValidDataTest(Integer id) {
 
-        DeleteAuthorByIdMethod deleteAuthorByIdMethod = new DeleteAuthorByIdMethod(id);
+        DeleteAuthorById deleteAuthorById = new DeleteAuthorById(id);
 
-        deleteAuthorByIdMethod.setProperties("author.properties");
-        deleteAuthorByIdMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
-        deleteAuthorByIdMethod.callAPI();
+        deleteAuthorById.setProperties("author.properties");
+        deleteAuthorById.expectResponseStatus(HttpResponseStatusType.OK_200);
+        deleteAuthorById.callAPI();
 
     }
 
-    @Test(testName = "DELETE2", description = "Validate DeleteAuthorByIdMethod with invalid data", dataProvider = "DeleteAuthorByIdInvalidData")
+    @Test(testName = "DELETE2", description = "Validate DeleteAuthorById with invalid data", dataProvider = "DeleteAuthorByIdInvalidData")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P0)
-    public void validateDeleteAuthorByIdMethodWithInvalidDataTest(Integer id) {
+    public void verifyDeleteAuthorByIdWithInvalidDataTest(Integer id) {
 
-        DeleteAuthorByIdMethod deleteAuthorByIdMethod = new DeleteAuthorByIdMethod(id);
+        DeleteAuthorById deleteAuthorById = new DeleteAuthorById(id);
 
-        deleteAuthorByIdMethod.expectResponseStatus(HttpResponseStatusType.BAD_REQUEST_400);
+        deleteAuthorById.expectResponseStatus(HttpResponseStatusType.BAD_REQUEST_400);
     }
 
 
