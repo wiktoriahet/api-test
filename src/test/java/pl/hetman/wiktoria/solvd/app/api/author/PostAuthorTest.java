@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pl.hetman.wiktoria.solvd.app.domain.Author;
 
-public class PostAuthorMethodTest implements IAbstractTest {
+public class PostAuthorTest implements IAbstractTest {
 
     @DataProvider(name = "PostAuthorWithValidData")
     public Object[][] createAuthorValidData() {
@@ -30,12 +30,12 @@ public class PostAuthorMethodTest implements IAbstractTest {
         };
     }
 
-    @Test(testName = "POST1", description = "Validate PostAuthorMethod with valid data", dataProvider = "PostAuthorWithValidData")
+    @Test(testName = "POST1", description = "Validate PostAuthor with valid data", dataProvider = "PostAuthorWithValidData")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P0)
-    public void validatePostAuthorMethodWithValidDataTest(Integer id, Integer bookId, String firstName, String lastName) {
+    public void verifyPostAuthorWithValidDataTest(Integer id, Integer bookId, String firstName, String lastName) {
         //given
-        PostAuthorMethod postAuthorMethod = new PostAuthorMethod();
+        PostAuthor postAuthor = new PostAuthor();
         Author author = new Author();
         author.setId(id);
         author.setIdBook(bookId);
@@ -45,20 +45,20 @@ public class PostAuthorMethodTest implements IAbstractTest {
         //when
 
         //then
-        postAuthorMethod.setProperties("author.properties");
-        postAuthorMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
-        postAuthorMethod.addProperty("Author", author);
-        postAuthorMethod.callAPI();
-        postAuthorMethod.validateResponse();
+        postAuthor.setProperties("author.properties");
+        postAuthor.expectResponseStatus(HttpResponseStatusType.OK_200);
+        postAuthor.addProperty("Author", author);
+        postAuthor.callAPI();
+        postAuthor.validateResponse();
 
     }
 
-    @Test(testName = "POST2", description = "Validate PostAuthorMethod with invalid data", dataProvider = "PostAuthorWithInvalidData")
+    @Test(testName = "POST2", description = "Validate PostAuthor with invalid data", dataProvider = "PostAuthorWithInvalidData")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P0)
-    public void validatePostAuthorMethodWithInvalidDataTest(Integer id, Integer bookId, String firstName, String lastName) {
+    public void verifyPostAuthorWithInvalidDataTest(Integer id, Integer bookId, String firstName, String lastName) {
         //given
-        PostAuthorMethod postAuthorMethod = new PostAuthorMethod();
+        PostAuthor postAuthor = new PostAuthor();
         Author author = new Author();
         author.setId(id);
         author.setIdBook(bookId);
@@ -68,8 +68,8 @@ public class PostAuthorMethodTest implements IAbstractTest {
         //when
 
         //then
-        postAuthorMethod.addProperty("Author", author);
-        postAuthorMethod.expectResponseStatus(HttpResponseStatusType.BAD_REQUEST_400);
+        postAuthor.addProperty("Author", author);
+        postAuthor.expectResponseStatus(HttpResponseStatusType.BAD_REQUEST_400);
     }
 
 }
