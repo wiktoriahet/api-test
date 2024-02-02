@@ -1,0 +1,34 @@
+[2024-02-02 02:51:14] [1] [INFO] TEST [Surefire test - validatePostAuthorMethodWithValidDataTest [L02]] STARTED at [15:51:14 2024-02-02]
+[2024-02-02 02:51:14] [1] [INFO] Base properties loaded: author.properties
+[2024-02-02 02:51:14] [1] [INFO] Request method:	POST
+Request URI:	https://fakerestapi.azurewebsites.net/api/v1/Authors/
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Multiparts:		<none>
+Cookies:		<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Body:
+{
+    "id": "4",
+    "idBook": "54",
+    "firstName": "Jan",
+    "lastName": "Kowalski"
+}
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8; v=1.0
+Date: Fri, 02 Feb 2024 14:51:14 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+api-supported-versions: 1.0
+
+{
+    "id": 4,
+    "idBook": 54,
+    "firstName": "Jan",
+    "lastName": "Kowalski"
+}
+
+[2024-02-02 02:51:14] [1] [INFO] TEST [Surefire test - validatePostAuthorMethodWithValidDataTest [L02]] PASSED at [15:51:14 2024-02-02]

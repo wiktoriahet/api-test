@@ -1,0 +1,6 @@
+{
+  "id": "type:Integer",
+  "idBook": "type:Integer",
+  "firstName": "type:String",
+  "lastName": "type:String"
+}

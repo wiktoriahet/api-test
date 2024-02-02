@@ -1,0 +1,35 @@
+[2024-02-02 02:52:45] [25] [WARN] Reporting disabled: using no op test run registrar
+[2024-02-02 02:52:45] [25] [INFO] TEST [Author API tests - validatePostAuthorMethodWithValidDataTest [L01]] STARTED at [15:52:45 2024-02-02]
+[2024-02-02 02:52:46] [25] [INFO] Base properties loaded: author.properties
+[2024-02-02 02:52:48] [25] [INFO] Request method:	POST
+Request URI:	https://fakerestapi.azurewebsites.net/api/v1/Authors/
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Multiparts:		<none>
+Cookies:		<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Body:
+{
+    "id": "1",
+    "idBook": "2",
+    "firstName": "Anna",
+    "lastName": "Nowak"
+}
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8; v=1.0
+Date: Fri, 02 Feb 2024 14:52:47 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+api-supported-versions: 1.0
+
+{
+    "id": 1,
+    "idBook": 2,
+    "firstName": "Anna",
+    "lastName": "Nowak"
+}
+
+[2024-02-02 02:52:48] [25] [INFO] TEST [Author API tests - validatePostAuthorMethodWithValidDataTest [L01]] PASSED at [15:52:48 2024-02-02]

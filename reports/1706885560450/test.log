@@ -1,0 +1,37 @@
+[2024-02-02 02:52:40] [1] [INFO] 
+=========== WebDriver configuration ===========
+-------------- Driver capabilities ------------
+===============================================
+
+[2024-02-02 02:52:40] [1] [WARN] Reporting disabled: using no op test run registrar
+[2024-02-02 02:52:44] [1] [INFO] [TestNG] Running:
+  C:\Users\wikto\IdeaProjects\git\tmp\test-api\src\test\resources\testng_suites\api.xml
+
+[2024-02-02 02:52:44] [1] [INFO] Use thread-count='5' from suite file.
+[2024-02-02 02:52:44] [1] [INFO] Set data-provider-thread-count=1
+[2024-02-02 02:52:44] [1] [INFO] CARINA_CORE_VERSION: 1.2.6
+[2024-02-02 02:52:48] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2024-02-02 02:52:48] [1] [INFO] RESULT #1: TEST [Author API tests - validateGetAuthorByIdMethodWithInvalidDataTest [L01]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/6dce0a7c-877e-4d2d-8e5c-56778d7fccac/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #2: TEST [Author API tests - validatePutAuthorByIdMethodWithInvalidDataTest [L01]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/52f1e91c-a0df-4ef5-bae2-c1d9697117c9/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #3: TEST [Author API tests - validatePostAuthorMethodWithInvalidDataTest [L01]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/757eee49-8597-4b07-81de-5d21391f19a1/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #4: TEST [Author API tests - validateGetAuthorByIdMethodWithInvalidDataTest [L02]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/81ab007c-7460-4682-81af-b8bfdd2b1029/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #5: TEST [Author API tests - validatePostAuthorMethodWithInvalidDataTest [L02]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/0f8090fe-a323-4d27-9c16-1cb102e08941/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #6: TEST [Author API tests - validatePutAuthorByIdMethodWithInvalidDataTest [L02]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/9ee3688a-ecda-4369-ad86-fb143410846b/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #7: TEST [Author API tests - validatePostAuthorMethodWithInvalidDataTest [L03]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/01b8fd1c-7671-402d-840f-b775bfb78eb5/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #8: TEST [Author API tests - validateGetAuthorByIdMethodWithInvalidDataTest [L03]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/7f1f7e6f-774a-430b-bc1f-aacdddf67124/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #9: TEST [Author API tests - validatePutAuthorByIdMethodWithInvalidDataTest [L03]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/8d149f64-eff6-4ab7-a879-4bdc70c75142/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #10: TEST [Author API tests - validateDeleteAuthorByIdMethodWithInvalidDataTest [L01]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/76920a62-6ba1-4677-95a1-c39c0c00b2d2/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #11: TEST [Author API tests - validateDeleteAuthorByIdMethodWithInvalidDataTest [L02]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/c256d212-a9dd-446f-937c-2df950f8b2f0/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #12: TEST [Author API tests - validateDeleteAuthorByIdMethodWithInvalidDataTest [L03]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/a4d00ccb-5847-4dd9-8c9b-504d415028ee/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #13: TEST [Author API tests - validateDeleteAuthorByIdMethodWithValidDataTest [L01]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/453b22c0-2975-4c91-8c8b-8674081ea8c6/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #14: TEST [Author API tests - validateGetAuthorByIdMethodWithValidDataTest [L01]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/5df9defa-0f67-49ca-a368-c3641a6f2099/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #15: TEST [Author API tests - validatePutAuthorByIdMethodWithValidDataTest [L01]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/04eb1f37-c14b-4809-a4a8-01d05f387cf8/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #16: TEST [Author API tests - validatePostAuthorMethodWithValidDataTest [L01]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/d72e8271-3c37-41e2-861a-0e0e01d48379/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #17: TEST [Author API tests - validateDeleteAuthorByIdMethodWithValidDataTest [L02]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/8cad6781-f1b1-4c34-b270-b0c2cc35da11/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #18: TEST [Author API tests - validateGetAuthorByIdMethodWithValidDataTest [L02]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/877ea55a-a98c-4a67-ad5e-c5a2f3fe2333/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #19: TEST [Author API tests - validatePostAuthorMethodWithValidDataTest [L02]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/e56d0b4f-8b0b-478d-a1db-22be79977e37/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #20: TEST [Author API tests - validatePutAuthorByIdMethodWithValidDataTest [L02]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/3a3308cb-d981-4384-988e-f7415d09e1e6/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #21: TEST [Author API tests - validateDeleteAuthorByIdMethodWithValidDataTest [L03]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/e7785009-5c85-42cb-a651-e9f20877efba/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #22: TEST [Author API tests - validateGetAuthorByIdMethodWithValidDataTest [L03]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/18a1c775-f29b-4c91-90aa-227d364863e3/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #23: TEST [Author API tests - validatePostAuthorMethodWithValidDataTest [L03]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/3a42e171-df60-45d6-ad19-15de6d693617/test.log]
+[2024-02-02 02:52:48] [1] [INFO] RESULT #24: TEST [Author API tests - validatePutAuthorByIdMethodWithValidDataTest [L03]] PASS [log=file://C:\Users\wikto\IdeaProjects\git\tmp\test-api\reports\1706885560450/b247c500-4ad0-4dfb-a844-6c23edd078ea/test.log]

@@ -1,0 +1,27 @@
+[2024-02-02 02:51:55] [1] [INFO] TEST [test-api - validateGetAuthorByIdMethodWithValidDataTest [L03]] STARTED at [15:51:55 2024-02-02]
+[2024-02-02 02:51:55] [1] [INFO] Request method:	GET
+Request URI:	https://fakerestapi.azurewebsites.net/api/v1/Authors/99
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Multiparts:		<none>
+Cookies:		<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Body:			<none>
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8; v=1.0
+Date: Fri, 02 Feb 2024 14:51:55 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+api-supported-versions: 1.0
+
+{
+    "id": 99,
+    "idBook": 33,
+    "firstName": "First Name 99",
+    "lastName": "Last Name 99"
+}
+
+[2024-02-02 02:51:55] [1] [INFO] TEST [test-api - validateGetAuthorByIdMethodWithValidDataTest [L03]] PASSED at [15:51:55 2024-02-02]

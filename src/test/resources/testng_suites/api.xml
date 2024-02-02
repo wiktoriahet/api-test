@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Api suite" parallel="methods" thread-count="5">
+
+    <test name="Author API tests">
+        <classes>
+            <class name="pl.hetman.wiktoria.solvd.app.api.author.GetAuthorByIdMethodTest"/>
+            <class name="pl.hetman.wiktoria.solvd.app.api.author.PostAuthorMethodTest"/>
+            <class name="pl.hetman.wiktoria.solvd.app.api.author.PutAuthorByIdTest"/>
+            <class name="pl.hetman.wiktoria.solvd.app.api.author.DeleteAuthorByIdMethodTest"/>
+        </classes>
+    </test>
+
+</suite>
