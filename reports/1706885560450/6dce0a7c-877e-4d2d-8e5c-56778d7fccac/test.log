@@ -1,3 +1,0 @@
-[2024-02-02 02:52:45] [22] [WARN] Reporting disabled: using no op test run registrar
-[2024-02-02 02:52:45] [22] [INFO] TEST [Author API tests - validateGetAuthorByIdMethodWithInvalidDataTest [L01]] STARTED at [15:52:45 2024-02-02]
-[2024-02-02 02:52:46] [22] [INFO] TEST [Author API tests - validateGetAuthorByIdMethodWithInvalidDataTest [L01]] PASSED at [15:52:46 2024-02-02]
