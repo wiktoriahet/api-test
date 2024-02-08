@@ -7,6 +7,7 @@ import com.zebrunner.carina.core.registrar.tag.Priority;
 import com.zebrunner.carina.core.registrar.tag.TestPriority;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import pl.hetman.wiktoria.solvd.app.web.api.author.DeleteAuthorById;
 
 public class DeleteAuthorByIdTest implements IAbstractTest {
 
