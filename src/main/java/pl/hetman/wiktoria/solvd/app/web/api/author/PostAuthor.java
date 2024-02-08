@@ -1,4 +1,4 @@
-package pl.hetman.wiktoria.solvd.app.api.author;
+package pl.hetman.wiktoria.solvd.app.web.api.author;
 
 import com.zebrunner.carina.api.AbstractApiMethodV2;
 import com.zebrunner.carina.api.annotation.Endpoint;
