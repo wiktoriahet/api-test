@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.HomePageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WhatsNewPageBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
 
 public class WebTest implements IAbstractTest {
 
@@ -26,6 +27,20 @@ public class WebTest implements IAbstractTest {
 
         WhatsNewPageBase whatsNewPageBase = homePageBase.getHeaderMenu().openWhatsNewPage();
         Assert.assertTrue(whatsNewPageBase.isPageOpened(), "whatsNewPageBase is not opened" );
+    }
 
+    @Test(testName = "WomenPageTest", description = "Verify if WomanPage is opening correctly")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifyOpenWomanPageTest() {
+
+        WebDriver webDriver = new ChromeDriver();
+        HomePageBase homePageBase = new HomePage(webDriver);
+
+        homePageBase.open();
+        Assert.assertTrue(homePageBase.isPageOpened(), "Home page is not opened!");
+
+        WomenPageBase womenPageBase = homePageBase.getHeaderMenu().openWomenPage();
+        Assert.assertTrue(womenPageBase.isPageOpened(), "whatsNewPageBase is not opened" );
     }
 }

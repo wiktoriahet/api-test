@@ -27,7 +27,6 @@ public class HomePage extends HomePageBase {
         return headerMenu;
     }
 
-
     @Override
     public void open() {
         openURL(Configuration.getRequired("home_url"));
