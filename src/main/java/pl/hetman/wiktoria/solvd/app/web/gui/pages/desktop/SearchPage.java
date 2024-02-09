@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SearchPage extends SearchPageBase {
 
-    @FindBy(xpath = "//*[@id=\"maincontent\"]/div[3]/div[1]/div[3]/div[2]/ol")
+    @FindBy(css = ".product-items li")
     private List<Product> products;
 
     public SearchPage(WebDriver driver) {

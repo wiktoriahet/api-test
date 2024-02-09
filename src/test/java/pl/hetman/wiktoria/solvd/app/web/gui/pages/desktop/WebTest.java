@@ -4,6 +4,8 @@ import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.core.registrar.tag.Priority;
 import com.zebrunner.carina.core.registrar.tag.TestPriority;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -20,6 +22,9 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
 import java.util.List;
 
 public class WebTest implements IAbstractTest {
+
+    private static final Logger LOGGER = LogManager.getLogger(WebTest.class);
+
 
     @DataProvider(name = "accountData")
     public Object[][] createAccountData() {
@@ -102,10 +107,17 @@ public class WebTest implements IAbstractTest {
         SoftAssert sa = new SoftAssert();
 
         List<Product> products = searchPage.getProducts();
+        sa.assertFalse(products.size()==0, "is not 0");
+
+        LOGGER.info("Product size: " + products.size());
 
         for (Product product : products) {
+            LOGGER.info("product.getTitleText(): " + product.getTitleText());
             sa.assertTrue(product.getTitleText().toLowerCase().contains(input));
         }
+
+        String currentUrl = searchPage.getCurrentUrl();
+        LOGGER.info("curent URL " + currentUrl);
         sa.assertAll();
     }
 
@@ -204,7 +216,7 @@ public class WebTest implements IAbstractTest {
     @Test(testName = "CreateAccountPageAttributeTest", description = "Verify if CreateAccountPage is containing attribute")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P1)
-    public void verifyCreateAccountPageAttributeTest(){
+    public void verifyCreateAccountPageAttributeTest() {
 
         WebDriver webDriver = new ChromeDriver();
         HomePage homePage = new HomePage(webDriver);
