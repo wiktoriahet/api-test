@@ -2,7 +2,7 @@ package pl.hetman.wiktoria.solvd.app.web.gui.pages.common;
 
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.header.HeaderMenuBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.header.MenuWidgetBase;
 
 public abstract class HomePageBase extends AbstractPage {
 
@@ -10,7 +10,7 @@ public abstract class HomePageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract HeaderMenuBase getHeaderMenu();
+    public abstract MenuWidgetBase getHeaderMenu();
 
     @Override
     public void open(){

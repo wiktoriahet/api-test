@@ -8,7 +8,7 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WhatsNewPage;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WomenPage;
 
-public class HeaderMenu extends HeaderMenuBase{
+public class MenuWidget extends MenuWidgetBase {
 
     @FindBy(xpath = "//*[@id=\"ui-id-2\"]/li[1]")
     private ExtendedWebElement whatsNewLink;
@@ -16,7 +16,7 @@ public class HeaderMenu extends HeaderMenuBase{
     @FindBy(xpath = "//*[@id=\"ui-id-4\"]/span[2]")
     private ExtendedWebElement womenPageLink;
 
-    public HeaderMenu(WebDriver driver, SearchContext searchContext) {
+    public MenuWidget(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 

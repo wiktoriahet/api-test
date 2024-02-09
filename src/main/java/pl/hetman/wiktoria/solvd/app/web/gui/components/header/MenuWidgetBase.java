@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WhatsNewPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
 
-public abstract class HeaderMenuBase extends AbstractUIObject {
+public abstract class MenuWidgetBase extends AbstractUIObject {
 
-    public HeaderMenuBase(WebDriver driver, SearchContext searchContext) {
+    public MenuWidgetBase(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
