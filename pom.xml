@@ -29,6 +29,7 @@
         <java.version>11</java.version>
         <zebrunner-agent.version>1.9.8</zebrunner-agent.version>
                 <suite>api</suite>
+                <suite>web</suite>
     </properties>
 
     <repositories>
