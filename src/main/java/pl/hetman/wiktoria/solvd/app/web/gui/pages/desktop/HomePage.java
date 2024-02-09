@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.header.Header;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidget;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchField;
@@ -23,6 +24,9 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "/html/body/div[2]/header/div[2]/div[2]")
     private SearchField searchField;
 
+    @FindBy(xpath = "/html/body/div[2]/header/div[1]/div")
+    private Header header;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -35,6 +39,11 @@ public class HomePage extends HomePageBase {
     @Override
     public SearchFieldBase getSearchField() {
         return searchField;
+    }
+
+    @Override
+    public Header getHeader() {
+        return header;
     }
 
     @Override

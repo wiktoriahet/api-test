@@ -7,16 +7,25 @@ import com.zebrunner.carina.core.registrar.tag.TestPriority;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.Product;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.HomePageBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.MyAccountPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WhatsNewPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
 
 import java.util.List;
 
 public class WebTest implements IAbstractTest {
+
+    @DataProvider(name = "accountData")
+    public Object[][] createAccountData() {
+        return new Object[][]{
+                {"Jan", "Kowalski", "jan@kowalski.com", "alfabet1@", "alfabet1@"},
+        };
+    }
 
     @Test(testName = "WhatsNewPageTest", description = "Verify if WhatsNewPage is opening correctly")
     @MethodOwner(owner = "Wiktoria")
@@ -30,7 +39,7 @@ public class WebTest implements IAbstractTest {
         Assert.assertTrue(homePageBase.isPageOpened(), "Home page is not opened!");
 
         WhatsNewPageBase whatsNewPageBase = homePageBase.getWidgetMenu().openWhatsNewPage();
-        Assert.assertTrue(whatsNewPageBase.isPageOpened(), "whatsNewPageBase is not opened" );
+        Assert.assertTrue(whatsNewPageBase.isPageOpened(), "whatsNewPageBase is not opened");
     }
 
     @Test(testName = "WomenPageTest", description = "Verify if WomanPage is opening correctly")
@@ -45,7 +54,7 @@ public class WebTest implements IAbstractTest {
         Assert.assertTrue(homePageBase.isPageOpened(), "Home page is not opened!");
 
         WomenPageBase womenPageBase = homePageBase.getWidgetMenu().openWomenPage();
-        Assert.assertTrue(womenPageBase.isPageOpened(), "whatsNewPageBase is not opened" );
+        Assert.assertTrue(womenPageBase.isPageOpened(), "whatsNewPageBase is not opened");
     }
 
     @Test(testName = "SearchFieldTest", description = "Verify if SearchFieldTest is working correctly")
@@ -57,7 +66,7 @@ public class WebTest implements IAbstractTest {
         HomePage homePage = new HomePage(webDriver);
 
         homePage.open();
-        //Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
 
         String input = "bra";
         String partialUrl = "catalogsearch";
@@ -75,4 +84,22 @@ public class WebTest implements IAbstractTest {
         }
     }
 
+    @Test(testName = "CreateAccountTest", description = "Verify if CreateAccount is working correctly", dataProvider = "accountData")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifyCreateAccountTest(String firstName, String lastName, String email, String password, String confirmPassword) {
+
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
+
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
+        CreateAccountPage createAccountPage = homePage.getHeader().openCreateAccountPage();
+        Assert.assertTrue(createAccountPage.isPageOpened(), "createAccountPage is not opened");
+
+        MyAccountPageBase accountPage = createAccountPage.createAccount(firstName, lastName, email, password, confirmPassword);
+        Assert.assertTrue(accountPage.isPageOpened(), "accountPage is not open. Account not created.");
     }
+
+}
