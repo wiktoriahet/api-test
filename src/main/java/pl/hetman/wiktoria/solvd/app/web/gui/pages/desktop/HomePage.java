@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.header.MenuWidget;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.header.MenuWidgetBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidget;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.HomePageBase;
 
 import java.lang.invoke.MethodHandles;
