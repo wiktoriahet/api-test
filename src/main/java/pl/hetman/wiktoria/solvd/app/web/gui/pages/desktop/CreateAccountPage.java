@@ -26,6 +26,9 @@ public class CreateAccountPage extends CreateAccountPageBase {
     @FindBy(xpath = "//*[@id=\"form-validate\"]/div/div[1]/button")
     private ExtendedWebElement createAccountButton;
 
+    @FindBy(xpath = "//*[@id=\"password-confirmation-error\"]")
+    private ExtendedWebElement errorField;
+
     public CreateAccountPage(WebDriver driver) {
         super(driver);
         setPageURL("customer/account/create/");
@@ -39,5 +42,33 @@ public class CreateAccountPage extends CreateAccountPageBase {
         confirmPasswordField.type(confirmPassword);
         createAccountButton.click();
         return new MyAccount(driver);
+    }
+
+    public ExtendedWebElement getFirstNameField() {
+        return firstNameField;
+    }
+
+    public ExtendedWebElement getLastNameField() {
+        return lastNameField;
+    }
+
+    public ExtendedWebElement getEmailField() {
+        return emailField;
+    }
+
+    public ExtendedWebElement getPasswordField() {
+        return passwordField;
+    }
+
+    public ExtendedWebElement getConfirmPasswordField() {
+        return confirmPasswordField;
+    }
+
+    public ExtendedWebElement getCreateAccountButton() {
+        return createAccountButton;
+    }
+
+    public ExtendedWebElement getErrorField() {
+        return errorField;
     }
 }

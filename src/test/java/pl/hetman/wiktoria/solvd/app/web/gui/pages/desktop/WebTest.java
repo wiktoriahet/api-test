@@ -28,10 +28,24 @@ public class WebTest implements IAbstractTest {
         };
     }
 
+    @DataProvider(name = "accountDataIncorrectPassword")
+    public Object[][] createAccountDataIncorrectPassword() {
+        return new Object[][]{
+                {"Jan", "Kowalski", "jan@kowalski12.com", "alfabet1@", "alfabet1"},
+        };
+    }
+
     @DataProvider(name = "accountDataSignIn")
     public Object[][] signInData() {
         return new Object[][]{
                 {"jan@kowalski.com", "alfabet1@"},
+        };
+    }
+
+    @DataProvider(name = "accountInvalidDataSignIn")
+    public Object[][] signInInvalidData() {
+        return new Object[][]{
+                {"a@a.uk", "aaa"},
         };
     }
 
@@ -113,7 +127,28 @@ public class WebTest implements IAbstractTest {
         Assert.assertTrue(accountPage.isPageOpened(), "accountPage is not open. Account not created.");
     }
 
-    @Test(testName = "SignInTest", description = "Verify if SignInTest is working correctly", dataProvider = "accountDataSignIn")
+    @Test(testName = "CreateAccountTestIncorrectPassword", description = "Verify if CreateAccount is working correctly", dataProvider = "accountDataIncorrectPassword")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifyCreateAccountWithIncorrectPasswordTest(String firstName, String lastName, String email, String password, String confirmPassword) {
+
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
+
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
+        CreateAccountPage createAccountPage = homePage.getHeader().openCreateAccountPage();
+        Assert.assertTrue(createAccountPage.isPageOpened(), "createAccountPage is not opened");
+
+        MyAccountPageBase accountPage = createAccountPage.createAccount(firstName, lastName, email, password, confirmPassword);
+        Assert.assertFalse(accountPage.isPageOpened(), "accountPage is open. Account created.");
+        SoftAssert sa = new SoftAssert();
+        sa.assertTrue(createAccountPage.getErrorField().isDisplayed(), "errorField is not displayed");
+        sa.assertAll();
+    }
+
+    @Test(testName = "SignInTest", description = "Verify if SignIn is working correctly", dataProvider = "accountDataSignIn")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P1)
     public void verifySignInTest(String email, String password) {
@@ -127,7 +162,61 @@ public class WebTest implements IAbstractTest {
         SignInPage signInPage = homePage.getHeader().openSignInPage();
         Assert.assertTrue(signInPage.isPageOpened(), "signInPage is not opened");
 
-        HomePage homePageAfterSiginingIn = signInPage.signIn(email, password);
-        Assert.assertTrue(homePageAfterSiginingIn.isPageOpened(), "homePageAfterSiginingIn is not open");
+        HomePage homePageAfterSigningIn = signInPage.signIn(email, password);
+        Assert.assertTrue(homePageAfterSigningIn.isPageOpened(), "homePageAfterSiginingIn is not open");
+    }
+
+    @Test(testName = "SignInTestInvalidData", description = "Verify if SignIn is working correctly when the data is invalid", dataProvider = "accountInvalidDataSignIn")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifySignInWithInvalidDataTest(String email, String password) {
+
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
+
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
+        SignInPage signInPage = homePage.getHeader().openSignInPage();
+        Assert.assertTrue(signInPage.isPageOpened(), "signInPage is not opened");
+
+        HomePage homePageAfterSigningIn = signInPage.signIn(email, password);
+        Assert.assertFalse(homePageAfterSigningIn.isPageOpened(), "homePageAfterSigningIn is open");
+    }
+
+    @Test(testName = "HomePageTest", description = "Verify if HomePage is containing search field")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifyHomePageTest() {
+
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
+
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
+        SoftAssert sa = new SoftAssert();
+        String attribute = homePage.getSearchField().getSearchButton().getAttribute("type");
+        sa.assertEquals(attribute, "submit", "attribute not present");
+        sa.assertAll();
+    }
+
+    @Test(testName = "CreateAccountPageAttributeTest", description = "Verify if CreateAccountPage is containing attribute")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifyCreateAccountPageAttributeTest(){
+
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
+
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
+        CreateAccountPage createAccountPage = homePage.getHeader().openCreateAccountPage();
+        Assert.assertTrue(createAccountPage.isPageOpened(), "createAccountPage is not opened");
+
+        String attribute = createAccountPage.getCreateAccountButton().getAttribute("type");
+        SoftAssert sa = new SoftAssert();
+        sa.assertEquals(attribute, "submit", "attribute is not present");
     }
 }

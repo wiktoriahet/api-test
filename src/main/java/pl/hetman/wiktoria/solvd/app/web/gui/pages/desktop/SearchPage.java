@@ -8,8 +8,7 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.SearchPageBase;
 import java.util.List;
 
 public class SearchPage extends SearchPageBase {
-//.product.name.product-item-name
-    //.product-item-link
+
     @FindBy(xpath = "//*[@id=\"maincontent\"]/div[3]/div[1]/div[3]/div[2]/ol")
     private List<Product> products;
 
