@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.Product;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.HomePageBase;
@@ -23,7 +24,14 @@ public class WebTest implements IAbstractTest {
     @DataProvider(name = "accountData")
     public Object[][] createAccountData() {
         return new Object[][]{
-                {"Jan", "Kowalski", "jan@kowalski.com", "alfabet1@", "alfabet1@"},
+                {"Jan", "Kowalski", "jan@kowalski11.com", "alfabet1@", "alfabet1@"},
+        };
+    }
+
+    @DataProvider(name = "accountDataSignIn")
+    public Object[][] signInData() {
+        return new Object[][]{
+                {"jan@kowalski.com", "alfabet1@"},
         };
     }
 
@@ -77,11 +85,14 @@ public class WebTest implements IAbstractTest {
 
         Assert.assertTrue(webDriver.getCurrentUrl().contains(partialUrl), "The url doesn't contain the partialUrl");
 
+        SoftAssert sa = new SoftAssert();
+
         List<Product> products = searchPage.getProducts();
 
         for (Product product : products) {
-            Assert.assertTrue(product.getTitleText().toLowerCase().contains(input));
+            sa.assertTrue(product.getTitleText().toLowerCase().contains(input));
         }
+        sa.assertAll();
     }
 
     @Test(testName = "CreateAccountTest", description = "Verify if CreateAccount is working correctly", dataProvider = "accountData")
@@ -102,4 +113,21 @@ public class WebTest implements IAbstractTest {
         Assert.assertTrue(accountPage.isPageOpened(), "accountPage is not open. Account not created.");
     }
 
+    @Test(testName = "SignInTest", description = "Verify if SignInTest is working correctly", dataProvider = "accountDataSignIn")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifySignInTest(String email, String password) {
+
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
+
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
+        SignInPage signInPage = homePage.getHeader().openSignInPage();
+        Assert.assertTrue(signInPage.isPageOpened(), "signInPage is not opened");
+
+        HomePage homePageAfterSiginingIn = signInPage.signIn(email, password);
+        Assert.assertTrue(homePageAfterSiginingIn.isPageOpened(), "homePageAfterSiginingIn is not open");
+    }
 }
