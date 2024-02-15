@@ -1,4 +1,4 @@
-package pl.hetman.wiktoria.solvd.app.web.gui.components.menu;
+package pl.hetman.wiktoria.solvd.app.web.gui.components.web.menu;
 
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;

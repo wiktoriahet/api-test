@@ -1,28 +1,30 @@
 package pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop;
 
 import com.zebrunner.carina.utils.config.Configuration;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.header.Header;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidget;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetBase;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchField;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.web.header.Header;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.web.menu.MenuWidgetWeb;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.web.menu.MenuWidgetBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.web.search.SearchFieldWeb;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.web.search.SearchFieldBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.HomePageBase;
 
 import java.lang.invoke.MethodHandles;
 
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = HomePageBase.class)
 public class HomePage extends HomePageBase {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @FindBy(xpath = "//*[@id=\"store.menu\"]")
-    private MenuWidget widgetMenu;
+    private MenuWidgetWeb widgetMenu;
 
     @FindBy(xpath = "/html/body/div[2]/header/div[2]/div[2]")
-    private SearchField searchField;
+    private SearchFieldWeb searchFieldWeb;
 
     @FindBy(xpath = "/html/body/div[2]/header/div[1]/div")
     private Header header;
@@ -38,7 +40,7 @@ public class HomePage extends HomePageBase {
 
     @Override
     public SearchFieldBase getSearchField() {
-        return searchField;
+        return searchFieldWeb;
     }
 
     @Override

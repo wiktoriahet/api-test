@@ -1,4 +1,4 @@
-package pl.hetman.wiktoria.solvd.app.web.gui.components.search;
+package pl.hetman.wiktoria.solvd.app.web.gui.components.web.search;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.SearchContext;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.SearchPage;
 
-public class SearchField extends SearchFieldBase {
+public class SearchFieldWeb extends SearchFieldBase {
 
     @FindBy(xpath = "//*[@id=\"search_mini_form\"]/div[2]/button")
     private ExtendedWebElement searchButton;
@@ -14,7 +14,7 @@ public class SearchField extends SearchFieldBase {
     @FindBy(xpath = "//*[@id=\"search\"]")
     private ExtendedWebElement searchInput;
 
-    public SearchField(WebDriver driver, SearchContext searchContext) {
+    public SearchFieldWeb(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 

@@ -1,4 +1,4 @@
-package pl.hetman.wiktoria.solvd.app.web.gui.components;
+package pl.hetman.wiktoria.solvd.app.web.gui.components.web;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;

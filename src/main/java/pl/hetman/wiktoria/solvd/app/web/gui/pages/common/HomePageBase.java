@@ -2,9 +2,9 @@ package pl.hetman.wiktoria.solvd.app.web.gui.pages.common;
 
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.header.HeaderBase;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetBase;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.web.header.HeaderBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.web.menu.MenuWidgetBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.web.search.SearchFieldBase;
 
 public abstract class HomePageBase extends AbstractPage {
 

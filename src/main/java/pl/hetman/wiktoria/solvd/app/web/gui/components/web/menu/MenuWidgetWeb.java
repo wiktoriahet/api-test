@@ -1,4 +1,4 @@
-package pl.hetman.wiktoria.solvd.app.web.gui.components.menu;
+package pl.hetman.wiktoria.solvd.app.web.gui.components.web.menu;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.SearchContext;
@@ -8,7 +8,7 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WhatsNewPage;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WomenPage;
 
-public class MenuWidget extends MenuWidgetBase {
+public class MenuWidgetWeb extends MenuWidgetBase {
 
     @FindBy(xpath = "//*[@id=\"ui-id-2\"]/li[1]")
     private ExtendedWebElement whatsNewLink;
@@ -16,7 +16,7 @@ public class MenuWidget extends MenuWidgetBase {
     @FindBy(xpath = "//*[@id=\"ui-id-4\"]/span[2]")
     private ExtendedWebElement womenPageLink;
 
-    public MenuWidget(WebDriver driver, SearchContext searchContext) {
+    public MenuWidgetWeb(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
