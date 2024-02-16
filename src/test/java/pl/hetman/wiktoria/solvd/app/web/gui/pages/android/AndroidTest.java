@@ -37,6 +37,15 @@ public class AndroidTest implements IAbstractTest {
         };
     }
 
+    @DataProvider(name = "emailData")
+    public Object[][] emailData() {
+        return new Object[][]{
+                {"anna@no4.com"},
+                //{"anna@no5.com"},
+                //{"anna@no6.com"}
+        };
+    }
+
     @Test(testName = "WhatsNewPageTest", description = "Verify if WhatsNewPage is opening correctly")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P1)
@@ -150,6 +159,31 @@ public class AndroidTest implements IAbstractTest {
             sa.assertTrue(signInPage.getErrorMessage().isDisplayed(), "Error message is not displayed");
             sa.assertAll();
         }
+    }
+
+    @Test(testName = "ForgotPasswordTest", description = "Verify if SignIn and Logout is working correctly", dataProvider = "emailData")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifyForgotPasswordTest(String email) {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
+        homePage.clickWidgetButton();
+
+        MenuWidgetAndroid widgetMenu = homePage.getWidgetMenu();
+        widgetMenu.accountButton();
+        SignInPage signInPage = widgetMenu.signIn();
+
+        ForgotPasswordPage forgotPasswordPage = signInPage.signInForgotPassword();
+
+        Assert.assertTrue(forgotPasswordPage.isPageOpened(), "forgotPasswordPage is not opened");
+
+        SignInPage signInPageAfterReset = forgotPasswordPage.resetPassword(email);
+
+        String partialUrl = "referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS9jdXN0b21lci9hY2NvdW50L2luZGV4Lw%2C%2C/";
+
+        Assert.assertTrue(getDriver().getCurrentUrl().contains(partialUrl), "signInPageAfterReset is not opened");
     }
 
     @BeforeTest

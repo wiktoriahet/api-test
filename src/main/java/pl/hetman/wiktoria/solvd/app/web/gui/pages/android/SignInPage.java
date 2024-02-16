@@ -15,23 +15,31 @@ public class SignInPage extends SignInPageBase {
     @FindBy(id = "email")
     private ExtendedWebElement emailField;
 
-    @FindBy(id="pass")
+    @FindBy(id = "pass")
     private ExtendedWebElement passwordField;
 
-    @FindBy(id="send2")
+    @FindBy(id = "send2")
     private ExtendedWebElement signInButton;
+
+    @FindBy(css = "a.action.remind")
+    private ExtendedWebElement forgotPasswordButton;
 
     public SignInPage(WebDriver driver) {
         super(driver);
         setPageURL("customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/");
     }
 
-    public HomePage signIn(String email, String password){
+    public HomePage signIn(String email, String password) {
         emailField.type(email);
         passwordField.type(password);
         signInButton.click();
         signInButton.click();
         return new HomePage(driver);
+    }
+
+    public ForgotPasswordPage signInForgotPassword(){
+        forgotPasswordButton.click();
+        return new ForgotPasswordPage(getDriver());
     }
 
     public ExtendedWebElement getErrorMessage() {
