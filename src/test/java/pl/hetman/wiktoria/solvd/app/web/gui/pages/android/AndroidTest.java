@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetAndroid;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldAndroid;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WhatsNewPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
@@ -24,6 +25,15 @@ public class AndroidTest implements IAbstractTest {
                 {"Anna", "Nowak", "anna@no4.com", "alfabet1@", "alfabet1@"},
                 {"Anna", "Nowak", "anna@no5.com", "alfabet1@", "alfabet1#"},
                 {"Anna", "Nowak", "anna@no6.com", "alfabet1%", "alfabet1@"}
+        };
+    }
+
+    @DataProvider(name = "signInData")
+    public Object[][] signInData() {
+        return new Object[][]{
+                {"anna@no4.com", "alfabet1@"},
+                {"anna@no4.com", "alfabet1"},
+                {"anna@no4.com", "alfabet1#"}
         };
     }
 
@@ -91,21 +101,57 @@ public class AndroidTest implements IAbstractTest {
 
         SoftAssert sa = new SoftAssert();
 
-        if(password.equals(confirmPassword)){
+        if (password.equals(confirmPassword)) {
             Assert.assertTrue(accountPage.isPageOpened(), "accountPage is not opened");
         } else {
             Assert.assertTrue(createAccountPage.getErrorField().isDisplayed(), "errorField is not displayed");
         }
 
-        if(accountPage.isPageOpened()){
+        if (accountPage.isPageOpened()) {
             HomePage homePageAfterLogOut = accountPage.logOut();
             sa.assertTrue(homePageAfterLogOut.isPageOpened(20), "homePageAfterLogOut is not opened");
         }
-
         sa.assertAll();
-
     }
 
+    @Test(testName = "SignInAndLogoutTest", description = "Verify if SignIn and Logout is working correctly", dataProvider = "signInData")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifySignInAndLogoutTest(String email, String password) {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
+        homePage.clickWidgetButton();
+
+        MenuWidgetAndroid widgetMenu = homePage.getWidgetMenu();
+        widgetMenu.accountButton();
+        SignInPage signInPage = widgetMenu.signIn();
+        HomePage homePageAfterSignIn = signInPage.signIn(email, password);
+
+        String correctPassword = "alfabet1@";
+
+        SoftAssert sa = new SoftAssert();
+
+        if(password.equals(correctPassword)){
+            sa.assertTrue(homePageAfterSignIn.isPageOpened(), "homePageAfterSignIn is not opened");
+
+            homePageAfterSignIn.clickWidgetButton();
+
+            MenuWidgetAndroid widgetMenuAfterSignIn = homePageAfterSignIn.getWidgetMenu();
+            widgetMenuAfterSignIn.accountButton();
+
+            HomePage homePageAfterLogOut = widgetMenuAfterSignIn.logOut();
+
+            sa.assertTrue(homePageAfterLogOut.isPageOpened(20), "homePageAfterLogOut is not opened");
+            sa.assertAll();
+
+        } else {
+            sa.assertTrue(signInPage.getErrorMessage().isDisplayed(), "Error message is not displayed");
+            sa.assertAll();
+        }
+
+    }
 
 
     @BeforeTest

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.android.CreateAccountPage;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.android.HomePage;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.pages.android.SignInPage;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WhatsNewPage;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WomenPage;
 
@@ -17,6 +18,9 @@ public class MenuWidgetAndroid extends MenuWidgetBase {
 
     @FindBy(xpath = "/html/body/div[2]/div[1]/div/div[3]/a")
     private ExtendedWebElement accountButton;
+
+    @FindBy(xpath = "//*[@id=\"store.links\"]/ul/li[2]/a")
+    private ExtendedWebElement signInButton;
 
     @FindBy(xpath = "//*[@id=\"store.links\"]/ul/li[3]/a")
     private ExtendedWebElement createAccountButton;
@@ -38,6 +42,11 @@ public class MenuWidgetAndroid extends MenuWidgetBase {
         accountButton.click();
         createAccountButton.click();
         return new CreateAccountPage(getDriver());
+    }
+
+    public SignInPage signIn(){
+        signInButton.click();
+        return new SignInPage(getDriver());
     }
 
     public void accountButton(){
