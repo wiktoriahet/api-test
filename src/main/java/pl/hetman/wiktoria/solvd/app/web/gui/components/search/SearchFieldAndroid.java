@@ -6,7 +6,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import pl.hetman.wiktoria.solvd.app.utils.MobileContextUtils;
-import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.SearchPage;
+import pl.hetman.wiktoria.solvd.app.web.gui.pages.android.SearchPage;
 
 public class SearchFieldAndroid extends SearchFieldBase implements IMobileUtils {
 

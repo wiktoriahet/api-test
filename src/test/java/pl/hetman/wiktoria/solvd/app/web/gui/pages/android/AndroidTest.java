@@ -15,7 +15,6 @@ import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetAndroid;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldAndroid;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WhatsNewPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
-import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.SearchPage;
 
 public class AndroidTest implements IAbstractTest {
 
@@ -161,7 +160,7 @@ public class AndroidTest implements IAbstractTest {
         }
     }
 
-    @Test(testName = "ForgotPasswordTest", description = "Verify if SignIn and Logout is working correctly", dataProvider = "emailData")
+    @Test(testName = "ForgotPasswordTest", description = "Verify if forgot password is working correctly", dataProvider = "emailData")
     @MethodOwner(owner = "Wiktoria")
     @TestPriority(Priority.P1)
     public void verifyForgotPasswordTest(String email) {
