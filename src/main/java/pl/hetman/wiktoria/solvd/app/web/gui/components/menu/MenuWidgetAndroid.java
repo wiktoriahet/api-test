@@ -1,14 +1,25 @@
-package pl.hetman.wiktoria.solvd.app.web.gui.components.web.menu;
+package pl.hetman.wiktoria.solvd.app.web.gui.components.menu;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import pl.hetman.wiktoria.solvd.app.web.gui.pages.android.CreateAccountPage;
+import pl.hetman.wiktoria.solvd.app.web.gui.pages.android.HomePage;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WhatsNewPage;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WomenPage;
 
 public class MenuWidgetAndroid extends MenuWidgetBase {
+
+    @FindBy(xpath = "//*[@id=\"store.links\"]/ul/li[2]/div/ul/li[3]/a")
+    private ExtendedWebElement logOutButton;
+
+    @FindBy(xpath = "/html/body/div[2]/div[1]/div/div[3]/a")
+    private ExtendedWebElement accountButton;
+
+    @FindBy(xpath = "//*[@id=\"store.links\"]/ul/li[3]/a")
+    private ExtendedWebElement createAccountButton;
 
     @FindBy(id = "ui-id-3")
     private ExtendedWebElement whatsNewLink;
@@ -21,6 +32,21 @@ public class MenuWidgetAndroid extends MenuWidgetBase {
 
     public MenuWidgetAndroid(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
+    }
+
+    public CreateAccountPage createAccount(){
+        accountButton.click();
+        createAccountButton.click();
+        return new CreateAccountPage(getDriver());
+    }
+
+    public void accountButton(){
+        accountButton.click();
+    }
+
+    public HomePage logOut() {
+        logOutButton.click();
+        return new HomePage(getDriver());
     }
 
     @Override

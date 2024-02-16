@@ -8,13 +8,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.search.SearchFieldAndroid;
+import org.testng.asserts.SoftAssert;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldAndroid;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WhatsNewPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WomenPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.SearchPage;
 
 public class AndroidTest implements IAbstractTest {
+
+    @DataProvider(name = "accountData")
+    public Object[][] createAccountData() {
+        return new Object[][]{
+                {"Anna", "Nowak", "anna@no4.com", "alfabet1@", "alfabet1@"},
+                {"Anna", "Nowak", "anna@no5.com", "alfabet1@", "alfabet1#"},
+                {"Anna", "Nowak", "anna@no6.com", "alfabet1%", "alfabet1@"}
+        };
+    }
 
     @Test(testName = "WhatsNewPageTest", description = "Verify if WhatsNewPage is opening correctly")
     @MethodOwner(owner = "Wiktoria")
@@ -58,12 +69,44 @@ public class AndroidTest implements IAbstractTest {
         searchField.typeSearchInputValue(searchedItem);
 
         SearchPage searchPage = searchField.clickSearchButton();
-
         String partialUrl = "catalogsearch";
 
         Assert.assertTrue(getDriver().getCurrentUrl().contains(partialUrl), "The url doesn't contain the partialUrl");
+    }
+
+    @Test(testName = "CreateAccountAndLogoutTest", description = "Verify if CreateAccount and Logout is working correctly", dataProvider = "accountData")
+    @MethodOwner(owner = "Wiktoria")
+    @TestPriority(Priority.P1)
+    public void verifyCreateAccountAndLogoutTest(String firstName, String lastName, String email, String password, String confirmPassword) {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
+        homePage.clickWidgetButton();
+        CreateAccountPage createAccountPage = homePage.getWidgetMenu().createAccount();
+
+        Assert.assertTrue(createAccountPage.isPageOpened(), "account page is not opened");
+
+        MyAccount accountPage = createAccountPage.createAccount(firstName, lastName, email, password, confirmPassword);
+
+        SoftAssert sa = new SoftAssert();
+
+        if(password.equals(confirmPassword)){
+            Assert.assertTrue(accountPage.isPageOpened(), "accountPage is not opened");
+        } else {
+            Assert.assertTrue(createAccountPage.getErrorField().isDisplayed(), "errorField is not displayed");
+        }
+
+        if(accountPage.isPageOpened()){
+            HomePage homePageAfterLogOut = accountPage.logOut();
+            sa.assertTrue(homePageAfterLogOut.isPageOpened(20), "homePageAfterLogOut is not opened");
+        }
+
+        sa.assertAll();
 
     }
+
+
 
     @BeforeTest
     @Override

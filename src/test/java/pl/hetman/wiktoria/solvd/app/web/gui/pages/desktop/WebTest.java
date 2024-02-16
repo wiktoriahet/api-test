@@ -12,8 +12,8 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.Product;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.search.SearchFieldBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.Product;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.HomePageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.MyAccountPageBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.WhatsNewPageBase;
@@ -36,7 +36,7 @@ public class WebTest implements IAbstractTest {
     @DataProvider(name = "accountDataIncorrectPassword")
     public Object[][] createAccountDataIncorrectPassword() {
         return new Object[][]{
-                {"Jan", "Kowalski", "jan@kowalski12.com", "alfabet1@", "alfabet1"},
+                {"Jan", "Kowalski", "jan@kowalski20.com", "alfabet1@", "alfabet1"},
         };
     }
 

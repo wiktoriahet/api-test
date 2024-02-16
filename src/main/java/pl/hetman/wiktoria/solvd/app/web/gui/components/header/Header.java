@@ -1,4 +1,4 @@
-package pl.hetman.wiktoria.solvd.app.web.gui.components.web.header;
+package pl.hetman.wiktoria.solvd.app.web.gui.components.header;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.SearchContext;

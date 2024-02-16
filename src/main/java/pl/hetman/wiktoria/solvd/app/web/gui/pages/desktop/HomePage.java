@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.header.Header;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.menu.MenuWidgetWeb;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.menu.MenuWidgetBase;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.search.SearchFieldWeb;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.search.SearchFieldBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.header.Header;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetWeb;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldWeb;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.HomePageBase;
 
 import java.lang.invoke.MethodHandles;

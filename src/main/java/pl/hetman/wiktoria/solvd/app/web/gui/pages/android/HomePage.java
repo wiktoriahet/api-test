@@ -9,10 +9,9 @@ import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.hetman.wiktoria.solvd.app.utils.MobileContextUtils;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.header.Header;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.header.HeaderBase;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.menu.MenuWidgetAndroid;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.web.search.SearchFieldAndroid;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.header.HeaderBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetAndroid;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldAndroid;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.HomePageBase;
 
 import java.lang.invoke.MethodHandles;
@@ -34,10 +33,6 @@ public class HomePage extends HomePageBase {
     //*[@id="search"]
     @FindBy(xpath = "//*[@id=\"search\"]")
     private SearchFieldAndroid searchField;
-
-    //@FindBy(xpath = "/html/body/div[2]/header")
-    //@FindBy(css = "page-header")
-    private Header header;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -67,12 +62,12 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public HeaderBase getHeader() {
-        return null;
+    public void open() {
+        openURL(Configuration.getRequired("home_url"));
     }
 
     @Override
-    public void open() {
-        openURL(Configuration.getRequired("home_url"));
+    public HeaderBase getHeader() {
+        return null;
     }
 }
