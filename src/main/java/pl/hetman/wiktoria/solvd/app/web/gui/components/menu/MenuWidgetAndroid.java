@@ -13,13 +13,13 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WomenPage;
 
 public class MenuWidgetAndroid extends MenuWidgetBase {
 
-    @FindBy(xpath = "//*[@id=\"store.links\"]/ul/li[2]/div/ul/li[3]/a")
+    @FindBy(xpath = "/html/body/div[2]/div/div/div[4]/ul/li[2]/div/ul/li[3]")
     private ExtendedWebElement logOutButton;
 
     @FindBy(xpath = "/html/body/div[2]/div[1]/div/div[3]/a")
     private ExtendedWebElement accountButton;
 
-    @FindBy(xpath = "//*[@id=\"store.links\"]/ul/li[2]/a")
+    @FindBy(xpath = "/html/body/div[2]/div/div/div[4]/ul/li[2]/a")
     private ExtendedWebElement signInButton;
 
     @FindBy(xpath = "//*[@id=\"store.links\"]/ul/li[3]/a")

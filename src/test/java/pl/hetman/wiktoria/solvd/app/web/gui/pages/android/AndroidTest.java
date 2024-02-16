@@ -22,9 +22,9 @@ public class AndroidTest implements IAbstractTest {
     @DataProvider(name = "accountData")
     public Object[][] createAccountData() {
         return new Object[][]{
-                {"Anna", "Nowak", "anna@no4.com", "alfabet1@", "alfabet1@"},
-                {"Anna", "Nowak", "anna@no5.com", "alfabet1@", "alfabet1#"},
-                {"Anna", "Nowak", "anna@no6.com", "alfabet1%", "alfabet1@"}
+                {"Anna", "Nowak", "anna@no14.com", "alfabet1@", "alfabet1@"},
+                {"Anna", "Nowak", "anna@no8.com", "alfabet1@", "alfabet1#"},
+                {"Anna", "Nowak", "anna@no9.com", "alfabet1%", "alfabet1@"}
         };
     }
 
@@ -133,7 +133,7 @@ public class AndroidTest implements IAbstractTest {
 
         SoftAssert sa = new SoftAssert();
 
-        if(password.equals(correctPassword)){
+        if (password.equals(correctPassword)) {
             sa.assertTrue(homePageAfterSignIn.isPageOpened(), "homePageAfterSignIn is not opened");
 
             homePageAfterSignIn.clickWidgetButton();
@@ -150,9 +150,7 @@ public class AndroidTest implements IAbstractTest {
             sa.assertTrue(signInPage.getErrorMessage().isDisplayed(), "Error message is not displayed");
             sa.assertAll();
         }
-
     }
-
 
     @BeforeTest
     @Override

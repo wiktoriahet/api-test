@@ -10,7 +10,7 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.SearchPage;
 
 public class SearchFieldAndroid extends SearchFieldBase implements IMobileUtils {
 
-    @FindBy(xpath = "//*[@id=\"search\"]")
+    @FindBy(xpath = "/html/body/div[2]/header/div[2]/div[2]/div[2]/form/div[1]/div/input")
     private ExtendedWebElement searchInput;
 
     public SearchFieldAndroid(WebDriver driver, SearchContext searchContext) {
@@ -21,7 +21,7 @@ public class SearchFieldAndroid extends SearchFieldBase implements IMobileUtils 
         searchInput.type(value);
     }
 
-    public SearchPage clickSearchButton(){
+    public SearchPage clickSearchButton() {
         MobileContextUtils contextUtils = new MobileContextUtils();
         contextUtils.switchMobileContext(MobileContextUtils.View.NATIVE);
         tap(1000, 2000);

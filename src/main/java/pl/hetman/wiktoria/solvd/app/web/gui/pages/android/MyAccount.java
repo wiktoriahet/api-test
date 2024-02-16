@@ -8,7 +8,7 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.MyAccountPageBase;
 
 public class MyAccount extends MyAccountPageBase {
 
-    @FindBy(xpath = "/html/body/div[2]/header/div[2]/span")
+    @FindBy(css = "span.action.nav-toggle")
     private ExtendedWebElement widgetMenuButton;
 
     @FindBy(id = "store.menu")

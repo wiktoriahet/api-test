@@ -9,7 +9,7 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.SignInPageBase;
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SignInPageBase.class)
 public class SignInPage extends SignInPageBase {
 
-    @FindBy(xpath = "//*[@id=\"maincontent\"]/div[2]/div[2]/div/div")
+    @FindBy(css = "div.page.messages")
     private ExtendedWebElement errorMessage;
 
     @FindBy(id = "email")

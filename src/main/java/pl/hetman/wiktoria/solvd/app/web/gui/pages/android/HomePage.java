@@ -21,17 +21,16 @@ public class HomePage extends HomePageBase {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    //@FindBy(className = "action nav-toggle")
-    @FindBy(xpath = "/html/body/div[2]/header/div[2]/span")
+    @FindBy(css = "span.action.nav-toggle")
     private ExtendedWebElement widgetMenuButton;
 
     @FindBy(id = "store.menu")
     private MenuWidgetAndroid menuWidget;
 
-    @FindBy(xpath = "//*[@id=\"search_mini_form\"]/div[1]/label")
+    @FindBy(css = "label.label")
     private ExtendedWebElement searchFieldButton;
-    //*[@id="search"]
-    @FindBy(xpath = "//*[@id=\"search\"]")
+
+    @FindBy(id = "search")
     private SearchFieldAndroid searchField;
 
     public HomePage(WebDriver driver) {
@@ -42,11 +41,11 @@ public class HomePage extends HomePageBase {
         contextUtils.switchMobileContext(MobileContextUtils.View.CHROMIUM);
     }
 
-    public void clickWidgetButton(){
+    public void clickWidgetButton() {
         widgetMenuButton.click();
     }
 
-    public void clickSearchButton(){
+    public void clickSearchButton() {
         searchFieldButton.click();
     }
 
