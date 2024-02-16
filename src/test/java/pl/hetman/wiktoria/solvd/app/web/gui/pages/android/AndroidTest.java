@@ -179,7 +179,7 @@ public class AndroidTest implements IAbstractTest {
 
         Assert.assertTrue(forgotPasswordPage.isPageOpened(), "forgotPasswordPage is not opened");
 
-        SignInPage signInPageAfterReset = forgotPasswordPage.resetPassword(email);
+        forgotPasswordPage.resetPassword(email);
 
         String partialUrl = "referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS9jdXN0b21lci9hY2NvdW50L2luZGV4Lw%2C%2C/";
 
