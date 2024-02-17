@@ -40,8 +40,8 @@ public class AndroidTest implements IAbstractTest {
     public Object[][] emailData() {
         return new Object[][]{
                 {"anna@no4.com"},
-                //{"anna@no5.com"},
-                //{"anna@no6.com"}
+                {"anna@no5.com"},
+                {"anna@no6.com"}
         };
     }
 
