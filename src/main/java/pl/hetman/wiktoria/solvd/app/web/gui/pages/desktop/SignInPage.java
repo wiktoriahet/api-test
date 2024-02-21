@@ -9,13 +9,16 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.SignInPageBase;
 @DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = SignInPageBase.class)
 public class SignInPage extends SignInPageBase {
 
-    @FindBy(xpath = "//*[@id=\"email\"]")
+    //@FindBy(xpath = "//*[@id=\"email\"]")
+    @FindBy(id = "email")
     private ExtendedWebElement emailField;
 
-    @FindBy(xpath = "//*[@id=\"pass\"]")
+    //@FindBy(xpath = "//*[@id=\"pass\"]")
+    @FindBy(id = "pass")
     private ExtendedWebElement passwordField;
 
-    @FindBy(xpath = "//*[@id=\"send2\"]")
+    //@FindBy(xpath = "//*[@id=\"send2\"]")
+    @FindBy(id="send2")
     private ExtendedWebElement signInButton;
 
     public SignInPage(WebDriver driver) {

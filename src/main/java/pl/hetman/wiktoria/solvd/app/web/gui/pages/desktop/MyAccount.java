@@ -9,7 +9,7 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.MyAccountPageBase;
 @DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = MyAccountPageBase.class)
 public class MyAccount extends MyAccountPageBase {
 
-    @FindBy(xpath = "//*[@id=\"maincontent\"]/div[2]/div[1]/div[5]/div[2]/div[1]/div[2]/a")
+    @FindBy(css = "a.action.edit")
     private ExtendedWebElement editAdressButton;
 
     public MyAccount(WebDriver driver) {
