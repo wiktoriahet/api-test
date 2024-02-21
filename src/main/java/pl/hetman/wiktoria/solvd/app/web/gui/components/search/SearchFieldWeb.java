@@ -8,10 +8,10 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.SearchPage;
 
 public class SearchFieldWeb extends SearchFieldBase {
 
-    @FindBy(xpath = "//*[@id=\"search_mini_form\"]/div[2]/button")
+    @FindBy(xpath = "//form[@id='search_mini_form']//button[@type='submit']")
     private ExtendedWebElement searchButton;
 
-    @FindBy(xpath = "//*[@id=\"search\"]")
+    @FindBy(xpath = "//input[@id=\"search\"]")
     private ExtendedWebElement searchInput;
 
     public SearchFieldWeb(WebDriver driver, SearchContext searchContext) {

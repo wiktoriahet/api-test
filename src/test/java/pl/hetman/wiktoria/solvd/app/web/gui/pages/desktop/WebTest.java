@@ -113,7 +113,7 @@ public class WebTest implements IAbstractTest {
 
         for (Product product : products) {
             LOGGER.info("product.getTitleText(): " + product.getTitleText());
-            sa.assertTrue(product.getTitleText().toLowerCase().contains(input));
+            sa.assertTrue(product.getTitleText().toLowerCase().contains(input), "Product: "+product.getTitleText() + " doesn't contain input: " + input);
         }
 
         String currentUrl = searchPage.getCurrentUrl();
