@@ -13,16 +13,16 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WomenPage;
 
 public class MenuWidgetAndroid extends MenuWidgetBase {
 
-    @FindBy(xpath = "/html/body/div[2]/div/div/div[4]/ul/li[2]/div/ul/li[3]")
+    @FindBy(xpath = "(//ul/li[@class=\"authorization-link\"])[3]")
     private ExtendedWebElement logOutButton;
 
-    @FindBy(xpath = "/html/body/div[2]/div[1]/div/div[3]/a")
+    @FindBy(xpath = "(//div/a[@class=\"nav-sections-item-switch\"])[2]")
     private ExtendedWebElement accountButton;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div/div[4]/ul/li[2]/a")
+    @FindBy(xpath = "(//li/a[@href=\"https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/\"])[2]")
     private ExtendedWebElement signInButton;
 
-    @FindBy(xpath = "//*[@id=\"store.links\"]/ul/li[3]/a")
+    @FindBy(xpath = "(//li/a[@href=\"https://magento.softwaretestingboard.com/customer/account/create/\"])[2]")
     private ExtendedWebElement createAccountButton;
 
     @FindBy(id = "ui-id-3")
@@ -31,7 +31,7 @@ public class MenuWidgetAndroid extends MenuWidgetBase {
     @FindBy(id = "ui-id-4")
     private ExtendedWebElement womenPageButton;
 
-    @FindBy(xpath = "//*[@id=\"ui-id-2\"]/li[2]/ul/li[1]/a")
+    @FindBy(className = "ui-state-focus")
     private ExtendedWebElement womenPageLink;
 
     public MenuWidgetAndroid(WebDriver driver, SearchContext searchContext) {
