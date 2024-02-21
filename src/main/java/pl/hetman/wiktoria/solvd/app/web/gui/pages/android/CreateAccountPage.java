@@ -1,34 +1,34 @@
-package pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop;
+package pl.hetman.wiktoria.solvd.app.web.gui.pages.android;
 
 import com.zebrunner.carina.utils.factory.DeviceType;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.CreateAccountPageBase;
-import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.MyAccountPageBase;
 
-@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = CreateAccountPageBase.class)
-public class CreateAccountPage extends CreateAccountPageBase {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = CreateAccountPageBase.class)
+public class CreateAccountPage extends CreateAccountPageBase implements IMobileUtils {
 
-    @FindBy(xpath = "//*[@id=\"firstname\"]")
+    @FindBy(id = "firstname")
     private ExtendedWebElement firstNameField;
 
-    @FindBy(xpath = "//*[@id=\"lastname\"]")
+    @FindBy(id = "lastname")
     private ExtendedWebElement lastNameField;
 
-    @FindBy(xpath = "//*[@id=\"email_address\"]")
+    @FindBy(id = "email_address")
     private ExtendedWebElement emailField;
 
-    @FindBy(xpath = "//*[@id=\"password\"]")
+    @FindBy(id = "password")
     private ExtendedWebElement passwordField;
 
-    @FindBy(xpath = "//*[@id=\"password-confirmation\"]")
+    @FindBy(id = "password-confirmation")
     private ExtendedWebElement confirmPasswordField;
 
-    @FindBy(xpath = "//*[@id=\"form-validate\"]/div/div[1]/button")
+    @FindBy(css = ".action.submit.primary")
     private ExtendedWebElement createAccountButton;
 
-    @FindBy(xpath = "//*[@id=\"password-confirmation-error\"]")
+    @FindBy(id = "password-confirmation-error")
     private ExtendedWebElement errorField;
 
     public CreateAccountPage(WebDriver driver) {
@@ -36,12 +36,13 @@ public class CreateAccountPage extends CreateAccountPageBase {
         setPageURL("customer/account/create/");
     }
 
-    public MyAccountPageBase createAccount(String firstName, String lastName, String email, String password, String confirmPassword){
+    public MyAccount createAccount(String firstName, String lastName, String email, String password, String confirmPassword) {
         firstNameField.type(firstName);
         lastNameField.type(lastName);
         emailField.type(email);
         passwordField.type(password);
         confirmPasswordField.type(confirmPassword);
+        createAccountButton.click();
         createAccountButton.click();
         return new MyAccount(driver);
     }

@@ -1,4 +1,4 @@
-package pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop;
+package pl.hetman.wiktoria.solvd.app.web.gui.pages.android;
 
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.SearchPageBase;
 
 import java.util.List;
 
-@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = SearchPageBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SearchPageBase.class)
 public class SearchPage extends SearchPageBase {
 
     @FindBy(css = ".product-items li")
