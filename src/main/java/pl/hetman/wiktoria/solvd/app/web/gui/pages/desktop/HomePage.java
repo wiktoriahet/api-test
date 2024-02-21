@@ -19,13 +19,13 @@ public class HomePage extends HomePageBase {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    @FindBy(xpath = "//*[@id=\"store.menu\"]")
+    @FindBy(id = "store.menu")
     private MenuWidgetWeb widgetMenu;
 
-    @FindBy(xpath = "/html/body/div[2]/header/div[2]/div[2]")
+    @FindBy(css = "div.block.block-search")
     private SearchFieldWeb searchFieldWeb;
 
-    @FindBy(xpath = "/html/body/div[2]/header/div[1]/div")
+    @FindBy(css = "div.panel.header")
     private Header header;
 
     public HomePage(WebDriver driver) {

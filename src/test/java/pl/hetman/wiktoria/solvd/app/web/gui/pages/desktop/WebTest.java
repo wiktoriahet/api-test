@@ -29,7 +29,7 @@ public class WebTest implements IAbstractTest {
     @DataProvider(name = "accountData")
     public Object[][] createAccountData() {
         return new Object[][]{
-                {"Jan", "Kowalski", "jan@kowalski15.com", "alfabet1@", "alfabet1@"},
+                {"Jan", "Kowalski", "jan@kowalski11.com", "alfabet1@", "alfabet1@"},
         };
     }
 
@@ -59,7 +59,8 @@ public class WebTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void verifyOpenWhatsNewPageTest() {
 
-        HomePageBase homePageBase = new HomePage(getDriver());
+        WebDriver webDriver = new ChromeDriver();
+        HomePageBase homePageBase = new HomePage(webDriver);
 
         homePageBase.open();
         Assert.assertTrue(homePageBase.isPageOpened(), "Home page is not opened!");
@@ -73,7 +74,8 @@ public class WebTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void verifyOpenWomanPageTest() {
 
-        HomePageBase homePageBase = new HomePage(getDriver());
+        WebDriver webDriver = new ChromeDriver();
+        HomePageBase homePageBase = new HomePage(webDriver);
 
         homePageBase.open();
         Assert.assertTrue(homePageBase.isPageOpened(), "Home page is not opened!");
@@ -87,7 +89,8 @@ public class WebTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void verifySearchFieldTest() {
 
-        HomePage homePage = new HomePage(getDriver());
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
 
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
@@ -99,7 +102,7 @@ public class WebTest implements IAbstractTest {
         searchField.typeSearchInputValue(input);
         SearchPage searchPage = searchField.clickSearchButton();
 
-        Assert.assertTrue(getDriver().getCurrentUrl().contains(partialUrl), "The url doesn't contain the partialUrl");
+        Assert.assertTrue(webDriver.getCurrentUrl().contains(partialUrl), "The url doesn't contain the partialUrl");
 
         SoftAssert sa = new SoftAssert();
 
@@ -123,7 +126,8 @@ public class WebTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void verifyCreateAccountTest(String firstName, String lastName, String email, String password, String confirmPassword) {
 
-        HomePage homePage = new HomePage(getDriver());
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
 
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
@@ -140,7 +144,8 @@ public class WebTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void verifyCreateAccountWithIncorrectPasswordTest(String firstName, String lastName, String email, String password, String confirmPassword) {
 
-        HomePage homePage = new HomePage(getDriver());
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
 
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
@@ -160,7 +165,8 @@ public class WebTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void verifySignInTest(String email, String password) {
 
-        HomePage homePage = new HomePage(getDriver());
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
 
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
@@ -177,7 +183,8 @@ public class WebTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void verifySignInWithInvalidDataTest(String email, String password) {
 
-        HomePage homePage = new HomePage(getDriver());
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
 
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
@@ -194,7 +201,8 @@ public class WebTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void verifyHomePageTest() {
 
-        HomePage homePage = new HomePage(getDriver());
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
 
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
@@ -210,7 +218,8 @@ public class WebTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void verifyCreateAccountPageAttributeTest() {
 
-        HomePage homePage = new HomePage(getDriver());
+        WebDriver webDriver = new ChromeDriver();
+        HomePage homePage = new HomePage(webDriver);
 
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
