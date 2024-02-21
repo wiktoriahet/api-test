@@ -9,10 +9,10 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.SignInPage;
 
 public class Header extends HeaderBase {
 
-    @FindBy(xpath = "/html/body/div[2]/header/div[1]/div/ul/li[3]/a")
+    @FindBy(xpath = "(//li/a[@href=\"https://magento.softwaretestingboard.com/customer/account/create/\"])[1]")
     private ExtendedWebElement createAccountLink;
 
-    @FindBy(xpath = "/html/body/div[2]/header/div[1]/div/ul/li[2]")
+    @FindBy(xpath = "(//ul/li[@class=\"authorization-link\"])[1]")
     private ExtendedWebElement signInLink;
 
     public Header(WebDriver driver, SearchContext searchContext) {
