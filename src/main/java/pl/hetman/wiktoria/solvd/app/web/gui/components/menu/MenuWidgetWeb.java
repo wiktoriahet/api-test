@@ -10,10 +10,10 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.desktop.WomenPage;
 
 public class MenuWidgetWeb extends MenuWidgetBase {
 
-    @FindBy(xpath = "//*[@id=\"ui-id-2\"]/li[1]")
+    @FindBy(xpath = "//ul/li[@class=\"level0 nav-1 category-item first level-top ui-menu-item\"]")
     private ExtendedWebElement whatsNewLink;
 
-    @FindBy(xpath = "//*[@id=\"ui-id-4\"]/span[2]")
+    @FindBy(xpath = "(//nav//li[2]//span[2])[1]")
     private ExtendedWebElement womenPageLink;
 
     public MenuWidgetWeb(WebDriver driver, SearchContext searchContext) {
