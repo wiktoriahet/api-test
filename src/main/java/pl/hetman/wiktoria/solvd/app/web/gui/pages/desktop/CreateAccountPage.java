@@ -10,25 +10,25 @@ import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.MyAccountPageBase;
 @DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = CreateAccountPageBase.class)
 public class CreateAccountPage extends CreateAccountPageBase {
 
-    @FindBy(xpath = "//*[@id=\"firstname\"]")
+    @FindBy(id = "firstname")
     private ExtendedWebElement firstNameField;
 
-    @FindBy(xpath = "//*[@id=\"lastname\"]")
+    @FindBy(id = "lastname")
     private ExtendedWebElement lastNameField;
 
-    @FindBy(xpath = "//*[@id=\"email_address\"]")
+    @FindBy(id = "email_address")
     private ExtendedWebElement emailField;
 
-    @FindBy(xpath = "//*[@id=\"password\"]")
+    @FindBy(id = "password")
     private ExtendedWebElement passwordField;
 
-    @FindBy(xpath = "//*[@id=\"password-confirmation\"]")
+    @FindBy(id = "password-confirmation")
     private ExtendedWebElement confirmPasswordField;
 
-    @FindBy(xpath = "//*[@id=\"form-validate\"]/div/div[1]/button")
+    @FindBy(xpath = "(//div[@class=\"primary\"]/button[@type=\"submit\"])[1]")
     private ExtendedWebElement createAccountButton;
 
-    @FindBy(xpath = "//*[@id=\"password-confirmation-error\"]")
+    @FindBy(id = "password-confirmation-error")
     private ExtendedWebElement errorField;
 
     public CreateAccountPage(WebDriver driver) {
