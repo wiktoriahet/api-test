@@ -7,10 +7,9 @@ import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.header.Header;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetWeb;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetBase;
+import pl.hetman.wiktoria.solvd.app.web.gui.components.menu.MenuWidgetWeb;
 import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldWeb;
-import pl.hetman.wiktoria.solvd.app.web.gui.components.search.SearchFieldBase;
 import pl.hetman.wiktoria.solvd.app.web.gui.pages.common.HomePageBase;
 
 import java.lang.invoke.MethodHandles;
@@ -39,7 +38,7 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public SearchFieldBase getSearchField() {
+    public SearchFieldWeb getSearchField() {
         return searchFieldWeb;
     }
 
