@@ -8,7 +8,6 @@ import com.zebrunner.carina.core.registrar.tag.TestPriority;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pl.hetman.wiktoria.solvd.app.domain.Author;
-import pl.hetman.wiktoria.solvd.app.web.api.author.PostAuthor;
 
 public class PostAuthorTest implements IAbstractTest {
 

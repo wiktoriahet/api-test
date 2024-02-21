@@ -1,3 +1,0 @@
-[2024-02-02 02:51:34] [1] [WARN] Reporting disabled: using no op test run registrar
-[2024-02-02 02:51:34] [1] [INFO] TEST [test-api - validateDeleteAuthorByIdMethodWithInvalidDataTest [L01]] STARTED at [15:51:34 2024-02-02]
-[2024-02-02 02:51:35] [1] [INFO] TEST [test-api - validateDeleteAuthorByIdMethodWithInvalidDataTest [L01]] PASSED at [15:51:35 2024-02-02]
